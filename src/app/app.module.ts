@@ -8,9 +8,10 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
 import { environment } from 'src/environments/environment';
+import { TopComponent } from './top/top.component';
 
 @NgModule({
-    declarations: [AppComponent, ContainerComponent],
+    declarations: [AppComponent, ContainerComponent, TopComponent],
     imports: [
         BrowserModule,
         RouterModule.forRoot([
@@ -26,6 +27,10 @@ import { environment } from 'src/environments/environment';
                             )
                     }
                 ]
+            },
+            {
+                path: 'top',
+                component: TopComponent
             }
         ]),
         NgxsModule.forRoot([], {
