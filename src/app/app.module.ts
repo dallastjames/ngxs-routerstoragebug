@@ -14,25 +14,28 @@ import { TopComponent } from './top/top.component';
     declarations: [AppComponent, ContainerComponent, TopComponent],
     imports: [
         BrowserModule,
-        RouterModule.forRoot([
-            {
-                path: '',
-                component: ContainerComponent,
-                children: [
-                    {
-                        path: 'page',
-                        loadChildren: (): any =>
-                            import('./child/child.module').then(
-                                cm => cm.ChildModule
-                            )
-                    }
-                ]
-            },
-            {
-                path: 'top',
-                component: TopComponent
-            }
-        ]),
+        RouterModule.forRoot(
+            [
+                {
+                    path: '',
+                    component: ContainerComponent,
+                    children: [
+                        {
+                            path: 'page',
+                            loadChildren: (): any =>
+                                import('./child/child.module').then(
+                                    cm => cm.ChildModule
+                                )
+                        }
+                    ]
+                },
+                {
+                    path: 'top',
+                    component: TopComponent
+                }
+            ],
+            { initialNavigation: 'disabled' }
+        ),
         NgxsModule.forRoot([], {
             developmentMode: !environment.production
         }),

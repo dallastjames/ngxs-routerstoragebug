@@ -11,5 +11,6 @@ export class AppComponent {
         this.router.events.subscribe(event => {
             console.log(event);
         });
+        this.router.initialNavigation();
     }
 }
